@@ -1,5 +1,5 @@
 export class Character {
-    constructor() {
+    constructor(mapPosition) {
       this.health = 3;
       this.defense = 3;
       this.attack = 3;
