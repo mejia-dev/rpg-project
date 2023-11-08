@@ -13,7 +13,7 @@ describe('Game', () => {
   test('to see if move function properly rolls random', () => {
     let game1 = new Game();
     expect(game1.move()).toBeLessThan(4);
-    expect(game1.move()).toGreaterThan(0);
+    expect(game1.move()).toBeGreaterThan(0);
   });
 })
 

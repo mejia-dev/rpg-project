@@ -18,10 +18,15 @@ export class Game {
 //   this.characters[1] = character;
 // }
 
-  move() {
-    if (submit = "buttonMove") {
-      let currentMove = Math.floor(Math.random(1) * 3);
-    } return currentMove;
+  move(string) {
+    let clicked = "go";
+    let currentMove = 0;
+    if (clicked = "go") {
+      currentMove = Math.floor(Math.random() * 3) + 1;
+      return currentMove;
+    } else { 
+      return currentMove 
+    }
   }  
   
   //   mapPosition += currentMove;
@@ -51,5 +56,5 @@ export class Game {
 // going yo have function() that increases map position 
 //based on Math.random roll
 
-
+//addcharacter()
 }
