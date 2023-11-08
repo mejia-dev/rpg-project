@@ -4,6 +4,7 @@ export class Game {
     this.mapPosition = 0;
     this.characters = {};
     this.enemy = {};
+    this.currentMove = 0;
     }
 
 
@@ -18,22 +19,27 @@ export class Game {
 //   this.characters[1] = character;
 // }
 
-  move(string) {
+  move() {
     // let status = "";
     let clicked = "go";
-    let currentMove = 0;
     if (clicked = "go") {
       // currentMove = Math.floor(Math.random() * 3) + 1;
-      currentMove += 3;
-      console.log(currentMove)
-      this.mapPosition += currentMove;
-      if (this.mapPosition = 3) {
+      this.currentMove += 10;
+      console.log(`that ${this.currentMove}`)
+      this.mapPosition += this.currentMove;
+      console.log(` this ${this.mapPosition}`)
+      if (this.mapPosition === 3) {
         return "this.battle()";
-        
-      }
-      return currentMove;
+      } else if (this.mapPosition === 6) {
+        return "this.battle()";
+      } else if (this.mapPosition === 9) {
+        return "this.battle()"
+      } else if (this.mapPosition >= 10) {
+          return "youWin()";
+      }    
+      return this.currentMove;
     } else { 
-      return currentMove 
+      return this.currentMove 
     }
   }  
   
@@ -44,7 +50,7 @@ export class Game {
   //   this.battle()
   // } else if (mapPosition = 9) {
   //   this.battle()
-  // } else if (mapPosition = 10) {
+  // } else if (mapPosition >= 10) {
   //   youWin()
   // } else {
   //   return this.mapPosition;
