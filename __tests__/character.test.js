@@ -8,15 +8,12 @@ describe('Character', () => {
     expect(newCharacter.defense).toEqual(3);
     expect(newCharacter.attack).toEqual(3);
   });
+
+  test('should add stats equivalent to warrior character choice', () => {
+    let newCharacter = new Character();
+    newCharacter.getStats("warrior")
+    expect(newCharacter.health).toEqual(3);
+    expect(newCharacter.defense).toEqual(4);
+    expect(newCharacter.attack).toEqual(5);
+  });
 });
-
-// - Warrior
-// -- Health: 3
-// -- Defense: 4
-// -- Attack: 3
-
-// function Character(input)
-  
-//   if input warrior == 
-
-//   if input archer --
