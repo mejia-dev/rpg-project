@@ -19,17 +19,25 @@ export class Game {
 // }
 
   move(string) {
+    // let status = "";
     let clicked = "go";
     let currentMove = 0;
     if (clicked = "go") {
-      currentMove = Math.floor(Math.random() * 3) + 1;
+      // currentMove = Math.floor(Math.random() * 3) + 1;
+      currentMove += 3;
+      console.log(currentMove)
+      this.mapPosition += currentMove;
+      if (this.mapPosition = 3) {
+        return "this.battle()";
+        
+      }
       return currentMove;
     } else { 
       return currentMove 
     }
   }  
   
-  //   mapPosition += currentMove;
+    
   // } if (mapPosition = 3) {
   //   this.battle()
   // } else if (mapPosition = 6) {
@@ -43,6 +51,7 @@ export class Game {
   // }
   // return this.mapPosition;
   // }
+  
   
   // battle() {
     //battle
