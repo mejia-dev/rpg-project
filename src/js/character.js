@@ -14,7 +14,7 @@ export class Character {
         this.health += 1;
         this.defense += 2;
         this.attack += 0;
-      } else {
+      } else if (type === "wizard") {
         this.health += 2;
         this.defense += 0;
         this.attack += 1;
