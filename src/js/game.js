@@ -56,9 +56,7 @@ export class Game {
     if (clicked === "go") {
       // this.currentMove = randomNum();
       // this.currentMove += 3;
-      // console.log(`that ${this.currentMove}`)
       this.mapPosition += this.randomNum();
-      // console.log(` this ${this.mapPosition}`)
       if (this.mapPosition === 3) {
         return "this.startBattle()";
       } else if (this.mapPosition === 6) {
@@ -90,7 +88,7 @@ export class Game {
   //wizard: h5, d3, a4
   //enemy: h5, a6
 
-  // warrior v enemy = Wh1 && EH 1 
+  // warrior v enemy = Wh(-2) && EH (2) 
   // archer v enemy = h4
   // wizard v enemy = h2
 
@@ -98,26 +96,61 @@ export class Game {
   
   // this.character.health - 1;
 
-  // warrior health (3) - (enemy attack (6)- warrior defense(4))
+  // warrior health (3) - (enemy attack (9)- warrior defense(4))
   // en health (6) - (war at 5 - en def 1)
 
+
+
+    // if Player lives & Enemy dies
+      // you win
+    // if Player dies & Enemy lives
+      // you lose
+    // if Player lives & Enemy lives
+      // startBattle
+    // if Player dies & Enemy dies
+      // oops
+
+
   battle() {
+    //displayStats()
     this.battleRound += 1;
-    let currentHealth = this.characters[0].health - (this.enemies[0].attack - this.characters[0].defense);
-    let currentEnHealth = this.enemies[0].health - (this.characters[0].attack - this.enemies[0].defense);
-    this.characters[0].health = currentHealth;
-    this.enemies[0].health = currentEnHealth;
-    if (this.enemies[0].health > 0 && this.characters[0].health > 0) { 
-        this.startBattle();
-      } else if (this.enemies[0].health <= 0) {
-        this.move();
-        return "you win";
-      }
+    if (this.testMode === 2) {console.log(`battleRound: ${this.battleRound}`)};
+    if (this.testMode === 2) {console.log(`Character's Health Position A: ${this.characters[0].health}`)};
+
+    this.characters[0].health = this.characters[0].health - (this.enemies[0].attack - this.characters[0].defense);
+      
+    this.enemies[0].health = this.enemies[0].health - (this.characters[0].attack - this.enemies[0].defense);
+
+
+    // if Player lives & Enemy dies
+    if (this.characters[0].health > 0 && this.enemies[0].health <= 0) {
+        // this.move();
+            return "you win";
+      // if Player dies & Enemy lives
+    } else if (this.characters[0].health <= 0 && this.enemies[0].health > 0) {
+      return "you lose";
+      // if Player lives & Enemy lives
+    } else if (this.characters[0].health > 0 && this.enemies[0].health > 0) {
+      
+      
+      this.startBattle();
+
+      // if Player dies & Enemy dies
+    } else if (this.characters[0].health <= 0 && this.enemies[0].health <= 0) {
+      return "you lose2";
+    }
 
   }
 
+  
+
   startBattle() {
-    this.battle();
+    if (this.characters[0].health > 0) {
+      this.battle();
+    } else {
+      return "you lose";
+    }
+
   }
   //       displayStats()
   //       battle()

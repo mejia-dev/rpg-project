@@ -51,7 +51,7 @@ describe('Game', () => {
     game1.characters[0].getStats("warrior");
     game1.enemies[0].enemyStats("monster");
     game1.startBattle();
-    expect(game1.characters[0].health).toEqual(11);
+    expect(game1.characters[0].health).toEqual(8);
   });
 
   test('should calculate enemies health lost during a battle based on character attack and health/defense', () => {
@@ -74,4 +74,28 @@ describe('Game', () => {
     game1.startBattle();
     expect(game1.battle()).toBe('you win')
 });
+
+  test('should say you lose if character health less than 0', () => {
+    game1.characters[0].getStats("warrior");
+    game1.enemies[0].enemyStats("monster");
+    game1.characters[0].health = 1;
+    game1.characters[0].defense = 0;
+    game1.enemies[0].attack = 100;
+    game1.enemies[0].health = 100;
+    game1.testMode = 2;
+    game1.startBattle();
+    expect(game1.battle()).toBe('you lose')
+  });
+
+  test('should return a unique result if both characters die on the same round', () => {
+    game1.characters[0].getStats("warrior");
+    game1.enemies[0].enemyStats("monster");
+    game1.characters[0].health = 1;
+    game1.characters[0].defense = 0;
+    game1.enemies[0].health = 1;
+    game1.enemies[0].defense = 0;
+    game1.testMode = 2;
+    game1.startBattle();
+    expect(game1.battle()).toBe('you lose2')
+  });
 });
