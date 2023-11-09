@@ -1,11 +1,27 @@
+import { Character } from "./character.js";
+import { Enemy } from "./enemy.js";
+
 export class Game {
   constructor() {
-    // this.move = move;
+    // this.startGame = startGame;
     this.mapPosition = 0;
     this.characters = {};
-    this.enemy = {};
+    this.enemies = {};
     this.currentMove = 0;
+    this.testMode = 0;
+
+    let newCharacter = new Character();
+    this.characters[0] = newCharacter;
+    let newEnemy = new Enemy();
+    this.enemies[0] = newEnemy;
     }
+
+  // startGame() {
+  //   player = gameCharacter(type.value)
+  //   //initiates game, pull down/submit in UI will choose "style" of character and create char obj{},
+  //   //Roll or play button (eventlistener) activates move()
+  //   }
+  
 
 
 
@@ -16,18 +32,33 @@ export class Game {
 // Math.floor(Math.random(1) * 3)
 
 // addCharacter(character) {
-//   this.characters[1] = character;
+//   this.characters[0] = character;
+// }
+//this,character needs to be added wi
+
+// doSomething(){
+//   this.gameCharacter.health - this.enemy[0].attack
+// }
+
+// largeFunction(){
+//   const num = randomNum()
+// }
+
+// logic(number){
+//   if(number ==3){
+    
+//   }
 // }
 
   move() {
     // let status = "";
     let clicked = "go";
-    if (clicked = "go") {
-      // currentMove = Math.floor(Math.random() * 3) + 1;
-      this.currentMove += 10;
-      console.log(`that ${this.currentMove}`)
-      this.mapPosition += this.currentMove;
-      console.log(` this ${this.mapPosition}`)
+    if (clicked === "go") {
+      // this.currentMove = randomNum();
+      // this.currentMove += 3;
+      // console.log(`that ${this.currentMove}`)
+      this.mapPosition += this.randomNum();
+      // console.log(` this ${this.mapPosition}`)
       if (this.mapPosition === 3) {
         return "this.battle()";
       } else if (this.mapPosition === 6) {
@@ -37,32 +68,65 @@ export class Game {
       } else if (this.mapPosition >= 10) {
           return "youWin()";
       }    
-      return this.currentMove;
+      return this.currentMove += this.mapPosition;
     } else { 
       return this.currentMove 
     }
   }  
-  
-    
-  // } if (mapPosition = 3) {
-  //   this.battle()
-  // } else if (mapPosition = 6) {
-  //   this.battle()
-  // } else if (mapPosition = 9) {
-  //   this.battle()
-  // } else if (mapPosition >= 10) {
-  //   youWin()
-  // } else {
-  //   return this.mapPosition;
-  // }
-  // return this.mapPosition;
-  // }
+
+  randomNum() {
+    if (this.testMode === 0) {
+      let currentMove = Math.floor(Math.random() * 3) + 1;
+      return currentMove;
+    } else {
+      return 0;
+    }
+  }
   
   
+  //stats:
+  //warrior: h3,d4,a5
+  //archer: h4, d5, a3
+  //wizard: h5, d3, a4
+  //enemy: h5, a6
+
+  // warrior v enemy = h1
+  // archer v enemy = h4
+  // wizard v enemy = h2
+  
+  // this.character.health - 1;
+
   // battle() {
-    //battle
-//     returns character.health
-//   }
+  //   currentHealth = character.health - (enemy.attack - character.defense);
+  //   return character.health += currentHealth;
+  //   if (
+  //     enemy.health > 0
+  //     ) {
+  //       displayStats()
+  //       battle()
+  //   } else if (character.health <= 0) {
+  //     youLose()
+  //   } else (displayStats() )
+  // }
+
+
+
+  // displayStats() {
+  //   currentHealth;
+  //   mapPosition;
+  // }
+
+//youWin() {
+//display winning screen and restart button
+// }
+
+//youLose() {
+  //display message; "you have lost, would you like to play again (if yes, startGame())"
+  //displayStats();
+
+//}
+
+
 // }
 //Game Play constructor
 //map variable
@@ -70,6 +134,6 @@ export class Game {
 //class mapPostionstarts at 0,
 // going yo have function() that increases map position 
 //based on Math.random roll
+// }
 
-//addcharacter()
 }
