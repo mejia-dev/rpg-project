@@ -90,16 +90,22 @@ export class Game {
   //wizard: h5, d3, a4
   //enemy: h5, a6
 
-  // warrior v enemy = h1
+  // warrior v enemy = Wh1 && EH 1 
   // archer v enemy = h4
   // wizard v enemy = h2
+
+
   
   // this.character.health - 1;
 
   // warrior health (3) - (enemy attack (6)- warrior defense(4))
+  // en health (6) - (war at 5 - en def 1)
 
   battle() {
     let currentHealth = this.characters[0].health - (this.enemies[0].attack - this.characters[0].defense);
+    let currentEnHealth = this.enemies[0].health - (this.characters[0].attack - this.enemies[0].defense);
+    this.characters[0].health = currentHealth;
+    this.enemies[0].health = currentEnHealth;
     return currentHealth;
   }
   //   return character.health += currentHealth;
