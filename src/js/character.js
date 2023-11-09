@@ -1,8 +1,8 @@
 export class Character {
     constructor() {
-      this.health = 3;
-      this.defense = 3;
-      this.attack = 3;
+      this.health = 8;
+      this.defense = 8;
+      this.attack = 8;
     }
 
     getStats(type) {
