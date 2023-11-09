@@ -7,7 +7,7 @@ export class Enemy {
 
     enemyStats(type) {
       if (type === "monster") {
-        this.health += 0;
+        this.health += 5;
         this.defense += 1;
         this.attack += 6;
       }

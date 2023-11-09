@@ -11,7 +11,7 @@ describe('Enemy', () => {
   test('should add stats equivalent to type of enemy', () => {
     let newEnemy = new Enemy();
     newEnemy.enemyStats("monster")
-    expect(newEnemy.health).toEqual(1);
+    expect(newEnemy.health).toEqual(6);
     expect(newEnemy.defense).toEqual(1);
     expect(newEnemy.attack).toEqual(6);
   });
