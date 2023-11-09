@@ -47,12 +47,12 @@ describe('Game', () => {
     expect(game1.move()).toBe("youWin()");
   });
 
-  // test('should calculate character health lost during a battle based on enemy attack and character defense', () => {
-  //   game1.characters[0].getStats("warrior");
-  //   game1.enemies[0].enemyStats("monster");
-  //   game1.battle();
-  //   expect(game1.characters[0].health).toEqual(1);
-  // });
+  test('should calculate character health lost during a battle based on enemy attack and character defense', () => {
+    game1.characters[0].getStats("warrior");
+    game1.enemies[0].enemyStats("monster");
+    game1.battle();
+    expect(game1.battle()).toEqual(1);
+  });
 
 //   test('should import character class into the game', () => {
 

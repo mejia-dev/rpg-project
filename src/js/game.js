@@ -96,8 +96,12 @@ export class Game {
   
   // this.character.health - 1;
 
-  // battle() {
-  //   currentHealth = character.health - (enemy.attack - character.defense);
+  // warrior health (3) - (enemy attack (6)- warrior defense(4))
+
+  battle() {
+    let currentHealth = this.characters[0].health - (this.enemies[0].attack - this.characters[0].defense);
+    return currentHealth;
+  }
   //   return character.health += currentHealth;
   //   if (
   //     enemy.health > 0
