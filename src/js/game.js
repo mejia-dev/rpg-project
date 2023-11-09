@@ -9,7 +9,7 @@ export class Game {
     this.enemies = {};
     this.currentMove = 0;
     this.testMode = 0;
-
+    this.battleRound = 0;
     let newCharacter = new Character();
     this.characters[0] = newCharacter;
     let newEnemy = new Enemy();
@@ -60,11 +60,11 @@ export class Game {
       this.mapPosition += this.randomNum();
       // console.log(` this ${this.mapPosition}`)
       if (this.mapPosition === 3) {
-        return "this.battle()";
+        return "this.startBattle()";
       } else if (this.mapPosition === 6) {
-        return "this.battle()";
+        return "this.startBattle()";
       } else if (this.mapPosition === 9) {
-        return "this.battle()"
+        return "this.startBattle()"
       } else if (this.mapPosition >= 10) {
           return "youWin()";
       }    
@@ -102,12 +102,16 @@ export class Game {
   // en health (6) - (war at 5 - en def 1)
 
   battle() {
+    this.battleRound += 1;
     let currentHealth = this.characters[0].health - (this.enemies[0].attack - this.characters[0].defense);
     let currentEnHealth = this.enemies[0].health - (this.characters[0].attack - this.enemies[0].defense);
     this.characters[0].health = currentHealth;
     this.enemies[0].health = currentEnHealth;
-   if (this.enemies[0].health > 0) { 
-        
+    if (this.enemies[0].health > 0 && this.characters[0].health > 0) { 
+        this.startBattle();
+      } else if (this.enemies[0].health <= 0) {
+        this.move();
+        return "you win";
       }
 
   }

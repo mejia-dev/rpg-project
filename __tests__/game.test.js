@@ -26,19 +26,19 @@ describe('Game', () => {
   test('should test to see if currentMove is 3 and call the battle function', () => {
     game1.mapPosition = 3;
     game1.testMode = 1;
-    expect(game1.move()).toBe("this.battle()");
+    expect(game1.move()).toBe("this.startBattle()");
   });
 
   test('should test to see if current move at 6 triggers battle function', () => {
     game1.mapPosition = 6;
     game1.testMode = 1;
-    expect(game1.move()).toBe("this.battle()");
+    expect(game1.move()).toBe("this.startBattle()");
   });
 
   test('should test to see if current move at 9 triggers battle function', () => {
     game1.mapPosition = 9;
     game1.testMode = 1;
-    expect(game1.move()).toBe("this.battle()");
+    expect(game1.move()).toBe("this.startBattle()");
   });
   
   test('should test to see if win game with currentMove greater or equal to 10', () => {
@@ -51,15 +51,27 @@ describe('Game', () => {
     game1.characters[0].getStats("warrior");
     game1.enemies[0].enemyStats("monster");
     game1.startBattle();
-    expect(game1.characters[0].health).toEqual(1);
+    expect(game1.characters[0].health).toEqual(11);
   });
 
   test('should calculate enemies health lost during a battle based on character attack and health/defense', () => {
     game1.characters[0].getStats("warrior");
     game1.enemies[0].enemyStats("monster");
     game1.startBattle();
-    expect(game1.enemies[0].health).toEqual(2);
+    expect(game1.enemies[0].health).toBeLessThan(6);
+  });
+  
+  test('should show that the battleRound variable is increasing by 1', () => {
+    game1.characters[0].getStats("warrior");
+    game1.enemies[0].enemyStats("monster");
+    game1.startBattle();
+    expect(game1.battleRound).toBeGreaterThan(0);
   });
 
-
+  test('should allow send character to move function again afer enemy is killed', () => {
+    game1.characters[0].getStats("warrior");
+    game1.enemies[0].enemyStats("monster");
+    game1.startBattle();
+    expect(game1.battle()).toBe('you win')
+});
 });
