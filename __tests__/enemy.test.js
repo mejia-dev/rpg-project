@@ -13,7 +13,7 @@ describe('Enemy', () => {
     newEnemy.enemyStats("monster")
     expect(newEnemy.health).toEqual(6);
     expect(newEnemy.defense).toEqual(1);
-    expect(newEnemy.attack).toEqual(6);
+    expect(newEnemy.attack).toEqual(9);
   });
 
 });
