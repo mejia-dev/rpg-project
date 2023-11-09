@@ -50,19 +50,16 @@ describe('Game', () => {
   test('should calculate character health lost during a battle based on enemy attack and character defense', () => {
     game1.characters[0].getStats("warrior");
     game1.enemies[0].enemyStats("monster");
-    game1.battle();
+    game1.startBattle();
     expect(game1.characters[0].health).toEqual(1);
   });
 
   test('should calculate enemies health lost during a battle based on character attack and health/defense', () => {
     game1.characters[0].getStats("warrior");
     game1.enemies[0].enemyStats("monster");
-    game1.battle();
+    game1.startBattle();
     expect(game1.enemies[0].health).toEqual(2);
   });
 
-//   test('should import character class into the game', () => {
-
-//   })
 
 });

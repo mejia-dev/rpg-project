@@ -106,12 +106,15 @@ export class Game {
     let currentEnHealth = this.enemies[0].health - (this.characters[0].attack - this.enemies[0].defense);
     this.characters[0].health = currentHealth;
     this.enemies[0].health = currentEnHealth;
-    return currentHealth;
+   if (this.enemies[0].health > 0) { 
+        
+      }
+
   }
-  //   return character.health += currentHealth;
-  //   if (
-  //     enemy.health > 0
-  //     ) {
+
+  startBattle() {
+    this.battle();
+  }
   //       displayStats()
   //       battle()
   //   } else if (character.health <= 0) {
@@ -119,7 +122,7 @@ export class Game {
   //   } else (displayStats() )
   // }
 
-
+      
 
   // displayStats() {
   //   currentHealth;
